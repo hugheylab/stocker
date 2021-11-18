@@ -23,8 +23,3 @@ apt-get -y install \
   zlib1g-dev
 
 rm -rf /var/lib/apt/lists/*
-
-#######################################
-
-# libcurl4-gnutls-dev libgsl-dev libssl-dev 
-
