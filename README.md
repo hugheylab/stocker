@@ -21,11 +21,11 @@
 
 For details on how to use the docker command-line interface, refer to the [documentation](https://docs.docker.com/engine/reference/run/). Below are a few examples.
 
-- To create and start a container in interactive mode, and bind mount a directory on the host to a directory in the container (remember to set a password):
+- To create and start a container in interactive mode, and bind mount a directory on the host to a directory in the container (if needed, the sudo password is "rstudio"):
 
     ```sh
     mkdir -p project
-    docker run -it --name stocker --mount type=bind,src=/home/ubuntu/project,dst=/home/rstudio/project -e PASSWORD=<ultra-sweet-pw> ghcr.io/hugheylab/stocker bash
+    docker run -it --name stocker --mount type=bind,src=/home/ubuntu/project,dst=/home/rstudio/project ghcr.io/hugheylab/stocker bash
     ```
 
 - To reconnect to a stopped container:
@@ -39,7 +39,7 @@ For details on how to use the docker command-line interface, refer to the [docum
 
   1. On AWS EC2, the instance must be associated with a security group that allows incoming TCP traffic on port 8787. See how to create such a security group [here](https://www.loom.com/share/e729754c92cb43ffa79457d6c8ff53f9).
    
-  2. Start the container.
+  2. Start the container. Here you must set a password that is not "rstudio".
       ```sh
       docker run --name stocker -p 8787:8787 -u root -e PASSWORD=<ultra-sweet-pw> ghcr.io/hugheylab/stocker /init
       ```
