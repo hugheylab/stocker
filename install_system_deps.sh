@@ -22,4 +22,6 @@ apt-get -y install \
   nano \
   zlib1g-dev
 
+echo "set -g mouse on" >> ~/.tmux.conf
+
 rm -rf /var/lib/apt/lists/*

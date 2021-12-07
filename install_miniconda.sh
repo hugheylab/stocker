@@ -15,3 +15,5 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 
 conda install mamba -c conda-forge
+
+echo "set -g mouse on" >> ~/.tmux.conf
