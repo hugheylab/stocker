@@ -20,6 +20,7 @@ apt-get update -qq && \
 apt-get -y install \
   tmux \
   nano \
+  uuid-runtime \
   zlib1g-dev
 
 echo "set -g mouse on" >> ~/.tmux.conf
