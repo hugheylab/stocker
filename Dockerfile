@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.1.2
+FROM rocker/rstudio:4.2.0
 
 LABEL org.opencontainers.image.authors="Jake Hughey <jakejhughey@gmail.com>" \
       org.opencontainers.image.source="https://github.com/hugheylab/stocker"
