@@ -41,8 +41,6 @@ jobs:
   push-socker:
     needs: docker
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PAT: ${{ secrets.JAKEJH_PAT }}
     steps:
       - name: Trigger socker Build
         run: |
