@@ -2,10 +2,11 @@ name: ci
 
 on:
   push:
-    branches:
-      - 'main'
+    branches: ['main']
   schedule:
     - cron: '55 23 * * 0'
+  repository_dispatch:
+    types: [build_application]
 
 jobs:
   docker:
@@ -35,3 +36,14 @@ jobs:
           push: true
           tags: |
             ghcr.io/hugheylab/stocker:latest
+
+  
+  push-socker:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.JAKEJH_PAT }}
+    steps:
+      - name: Trigger socker Build
+        run: |
+          curl -XPOST -u "jakejh:${{secrets.JAKEJH_PAT}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/hugheylab/socker/dispatches --data '{"event_type": "build_application"}'
+        shell: bash
